@@ -18,7 +18,7 @@
 #define TWIST_DIVISOR      30
 
 #define SCROLL_MULTIPLIER  1
-#define SCROLL_DIVISOR     3
+#define SCROLL_DIVISOR     5
 
 #define SNIPE_MULTIPLIER   1
 #define SNIPE_DIVISOR      6
@@ -38,8 +38,8 @@
                 &ltm LAYER_EXTRAS MB4     &ltm LAYER_DEVICE MB5
 
                 // rotary encoders
-                &mwh SCROLL_UP            &kp C_VOL_UP
-                &mwh SCROLL_DOWN          &kp C_VOL_DN
+                &msc SCRL_UP              &kp C_VOL_UP
+                &msc SCRL_DOWN            &kp C_VOL_DN
             >;
         };
 
@@ -52,8 +52,8 @@
                 &kp LC(Z)      &kp LC(C)
                 &trans         &kp LC(V)
 
-                &mwh SCROLL_UP   &kp C_VOL_UP
-                &mwh SCROLL_DOWN &kp C_VOL_DN
+                &msc SCRL_UP   &kp C_VOL_UP
+                &msc SCRL_DOWN &kp C_VOL_DN
             >;
         };
 
@@ -66,8 +66,8 @@
                 &rgb_tog           &bt BT_PRV
                 &studio_unlock     &trans
 
-                &mwh SCROLL_UP       &kp C_VOL_UP
-                &mwh SCROLL_DOWN     &kp C_VOL_DN
+                &msc SCRL_UP       &kp C_VOL_UP
+                &msc SCRL_DOWN     &kp C_VOL_DN
             >;
         };
 
@@ -94,8 +94,8 @@
                 &trans           &trans
                 &trans           &trans
 
-                &mwh SCROLL_UP     &kp C_VOL_UP
-                &mwh SCROLL_DOWN   &kp C_VOL_DN
+                &msc SCRL_UP     &kp C_VOL_UP
+                &msc SCRL_DOWN   &kp C_VOL_DN
             >;
         };
 
@@ -108,8 +108,8 @@
                 &trans        &trans
                 &trans        &trans
 
-                &mwh SCROLL_UP   &kp C_VOL_UP
-                &mwh SCROLL_DOWN &kp C_VOL_DN
+                &msc SCRL_UP   &kp C_VOL_UP
+                &msc SCRL_DOWN &kp C_VOL_DN
             >;
         };
     };
