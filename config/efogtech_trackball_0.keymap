@@ -15,171 +15,171 @@
 #define LAYER_USER         5
 
 #define TWIST_MULTIPLIER   1
-#define TWIST_DIVISOR      1
+#define TWIST_DIVISOR      35
 
 #define SCROLL_MULTIPLIER  1
 #define SCROLL_DIVISOR     3
 
 #define SNIPE_MULTIPLIER   1
-#define SNIPE_DIVISOR      4
+#define SNIPE_DIVISOR      6
 
 / {
-	keymap {
-		compatible = "zmk,keymap";
+    keymap {
+        compatible = "zmk,keymap";
 
-		default_layer {
-			display-name = "Default";
-			DECLARE_ENCODERS;
-			bindings = <
-				// buttons
-				&ltmkp LAYER_SNIPE ENTER  &ltmkp LAYER_SCROLL ESC
-				&mkp MCLK                 &cdch LAYER_SCROLL 0
-				&mkp LCLK                 &mkp RCLK
-				&ltm LAYER_EXTRAS MB4     &ltm LAYER_DEVICE MB5
+        default_layer {
+            display-name = "Default";
+            DECLARE_ENCODERS;
+            bindings = <
+                // buttons
+                &ltmkp LAYER_SNIPE ENTER  &ltmkp LAYER_SCROLL ESC
+                &mkp MCLK                 &cdch LAYER_SCROLL 0
+                &mkp LCLK                 &mkp RCLK
+                &ltm LAYER_EXTRAS MB4     &ltm LAYER_DEVICE MB5
 
-				// rotary encoders
-				&kp C_VOL_UP              &kp LC(TAB)
-				&kp C_VOL_DN              &kp LC(LS(TAB))
-			>;
-		};
+                // rotary encoders
+                &mwh SCROLL_UP            &kp C_VOL_UP
+                &mwh SCROLL_DOWN          &kp C_VOL_DN
+            >;
+        };
 
-		layer2 {
-			display-name = "Extras";
-			DECLARE_ENCODERS;
-			bindings = <
-				&kp LC(C)      &kp LC(V)
-				&kp LC(X)      &kp LC(Z)
-				&kp LC(Z)      &kp LC(C)
-				&trans         &kp LC(V)
+        layer2 {
+            display-name = "Extras";
+            DECLARE_ENCODERS;
+            bindings = <
+                &kp LC(C)      &kp LC(V)
+                &kp LC(X)      &kp LC(Z)
+                &kp LC(Z)      &kp LC(C)
+                &trans         &kp LC(V)
 
-				&kp C_VOL_UP   &kp LC(TAB)
-				&kp C_VOL_DN   &kp LC(LS(TAB))
-			>;
-		};
+                &mwh SCROLL_UP   &kp C_VOL_UP
+                &mwh SCROLL_DOWN &kp C_VOL_DN
+            >;
+        };
 
-		layer3 {
-			display-name = "Device";
-			DECLARE_ENCODERS;
-			bindings = <
-				&rgb_off           &rgb_ug RGB_EFF
-				&bt BT_CLR         &bt BT_NXT
-				&rgb_tog           &bt BT_PRV
-				&studio_unlock     &trans
+        layer3 {
+            display-name = "Device";
+            DECLARE_ENCODERS;
+            bindings = <
+                &rgb_off           &rgb_ug RGB_EFF
+                &bt BT_CLR         &bt BT_NXT
+                &rgb_tog           &bt BT_PRV
+                &studio_unlock     &trans
 
-				&kp C_VOL_UP       &kp LC(TAB)
-				&kp C_VOL_DN       &kp LC(LS(TAB))
-			>;
-		};
+                &mwh SCROLL_UP       &kp C_VOL_UP
+                &mwh SCROLL_DOWN     &kp C_VOL_DN
+            >;
+        };
 
-		layer4 {
-			display-name = "Scroll";
-			DECLARE_ENCODERS;
-			bindings = <
-			    &trans              &trans
-			    &trans              &scrlsens P2SM_INC 1
-			    &rrl 1              &scrlsens P2SM_DEC 1
-			    &sens P2SM_DEC 1    &sens P2SM_INC 1
+        layer4 {
+            display-name = "Scroll";
+            DECLARE_ENCODERS;
+            bindings = <
+                &trans              &trans
+                &trans              &scrlsens P2SM_INC 1
+                &rrl 1              &scrlsens P2SM_DEC 1
+                &sens P2SM_DEC 1    &sens P2SM_INC 1
 
-				&sens P2SM_DEC 1    &scrlsens P2SM_INC 1
-				&sens P2SM_INC 1    &scrlsens P2SM_DEC 1
-			>;
-		};
+                &sens P2SM_DEC 1    &scrlsens P2SM_INC 1
+                &sens P2SM_INC 1    &scrlsens P2SM_DEC 1
+            >;
+        };
 
-		layer5 {
-			display-name = "Snipe";
-			DECLARE_ENCODERS;
-			bindings = <
-				&trans           &soft_off
-				&trans           &trans
-				&trans           &trans
-				&trans           &trans
+        layer5 {
+            display-name = "Snipe";
+            DECLARE_ENCODERS;
+            bindings = <
+                &trans           &soft_off
+                &trans           &trans
+                &trans           &trans
+                &trans           &trans
 
-				&kp LEFT         &kp RIGHT
-				&kp RIGHT        &kp LEFT
-			>;
-		};
+                &mwh SCROLL_UP     &kp C_VOL_UP
+                &mwh SCROLL_DOWN   &kp C_VOL_DN
+            >;
+        };
 
-		layer6 {
-			display-name = "User";
-			DECLARE_ENCODERS;
-			bindings = <
-				&trans        &trans
-				&trans        &trans
-				&trans        &trans
-				&trans        &trans
+        layer6 {
+            display-name = "User";
+            DECLARE_ENCODERS;
+            bindings = <
+                &trans        &trans
+                &trans        &trans
+                &trans        &trans
+                &trans        &trans
 
-				&kp C_VOL_UP  &kp LC(TAB)
-				&kp C_VOL_DN  &kp LC(LS(TAB))
-		    >;
-		};
-	};
+                &mwh SCROLL_UP   &kp C_VOL_UP
+                &mwh SCROLL_DOWN &kp C_VOL_DN
+            >;
+        };
+    };
 
-	behaviors {
-		cdch: click-double-click-hold {
-			compatible = "zmk,behavior-hold-tap";
-			display-name = "Copy/paste/layer (click/double-click/hold)";
-			#binding-cells = <2>;
-			flavor = "tap-preferred";
-			tapping-term-ms = <325>;
-			bindings = <&mo>, <&cdc>;
-		};
+    behaviors {
+        cdch: click-double-click-hold {
+            compatible = "zmk,behavior-hold-tap";
+            display-name = "Copy/paste/layer (click/double-click/hold)";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <325>;
+            bindings = <&mo>, <&cdc>;
+        };
 
-		cdc: click-double-click {
-			compatible = "zmk,behavior-tap-dance";
-			display-name = "Copy/paste (click/double-click)";
-			#binding-cells = <0>;
-			tapping-term-ms = <300>;
-			bindings = <&kp K_COPY>, <&kp K_PASTE>;
-		};
-	};
+        cdc: click-double-click {
+            compatible = "zmk,behavior-tap-dance";
+            display-name = "Copy/paste (click/double-click)";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&kp K_COPY>, <&kp K_PASTE>;
+        };
+    };
 
-	trackball {
-		input-processors = <&zip_scroll_scaler TWIST_MULTIPLIER TWIST_DIVISOR>,
-						   <&zip_pointer_accel>, <&zip_scroll_accel>,
-						   <&zip_rotate_pointer>, <&zip_rotate_scroll>,
-		                   <&zip_ble_report_rate_limit>;
+    trackball {
+        input-processors = <&zip_scroll_scaler TWIST_MULTIPLIER TWIST_DIVISOR>,
+                           <&zip_pointer_accel>, <&zip_scroll_accel>,
+                           <&zip_rotate_pointer>, <&zip_rotate_scroll>,
+                           <&zip_ble_report_rate_limit>;
 
-		scroll {
-			layers = <LAYER_SCROLL>;
-			input-processors = <&zip_xy_scaler SCROLL_MULTIPLIER SCROLL_DIVISOR>, <&zip_axis_clamper>,
-							   <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,
-							   <&zip_scroll_accel>, <&zip_rotate_scroll>, <&zip_ble_report_rate_limit>;
-		};
+        scroll {
+            layers = <LAYER_SCROLL>;
+            input-processors = <&zip_xy_scaler SCROLL_MULTIPLIER SCROLL_DIVISOR>, <&zip_axis_clamper>,
+                               <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,
+                               <&zip_rotate_scroll>, <&zip_ble_report_rate_limit>;
+        };
 
-		snipe {
-			layers = <LAYER_SNIPE>;
-			input-processors = <&zip_xy_scaler SNIPE_MULTIPLIER SNIPE_DIVISOR>,
-							   <&zip_rotate_pointer>, <&zip_rotate_scroll>, <&zip_ble_report_rate_limit>;
-		};
-	};
+        snipe {
+            layers = <LAYER_SNIPE>;
+            input-processors = <&zip_xy_scaler SNIPE_MULTIPLIER SNIPE_DIVISOR>,
+                               <&zip_rotate_pointer>, <&zip_rotate_scroll>, <&zip_ble_report_rate_limit>;
+        };
+    };
 
-	behaviors {
-		rrl {
-			values-ms = <0 1 2 4 6 8>;
-		};
-	};
+    behaviors {
+        rrl {
+            values-ms = <0 1 2 4 6 8>;
+        };
+    };
 
-	macros {
-		rgb_tog: rgb_tog {
-			compatible = "zmk,behavior-macro";
-			display-name = "Toggle RGB";
-			#binding-cells = <0>;
-			wait-ms = <20>;
-			bindings
-			= <&rgb_ug RGB_TOG>
-			, <&ext_power EP_TOG>
-			;
-		};
+    macros {
+        rgb_tog: rgb_tog {
+            compatible = "zmk,behavior-macro";
+            display-name = "Toggle RGB";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            bindings
+            = <&rgb_ug RGB_TOG>
+            , <&ext_power EP_TOG>
+            ;
+        };
 
-		rgb_off: rgb_off {
-			compatible = "zmk,behavior-macro";
-			display-name = "RGB off";
-			#binding-cells = <0>;
-			wait-ms = <20>;
-			bindings
-			= <&ext_power EP_OFF>
-			, <&rgb_ug RGB_OFF>
-			;
-		};
-	};
+        rgb_off: rgb_off {
+            compatible = "zmk,behavior-macro";
+            display-name = "RGB off";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            bindings
+            = <&ext_power EP_OFF>
+            , <&rgb_ug RGB_OFF>
+            ;
+        };
+    };
 };
