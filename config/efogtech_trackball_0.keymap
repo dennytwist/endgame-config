@@ -15,10 +15,10 @@
 #define LAYER_USER         5
 
 #define TWIST_MULTIPLIER   1
-#define TWIST_DIVISOR      25
+#define TWIST_DIVISOR      30
 
 #define SCROLL_MULTIPLIER  1
-#define SCROLL_DIVISOR     20
+#define SCROLL_DIVISOR     5
 
 #define SNIPE_MULTIPLIER   1
 #define SNIPE_DIVISOR      6
@@ -52,8 +52,8 @@
 				&kp LC(Z)      &kp LC(C)
 				&trans         &kp LC(V)
 
-				&kp C_VOL_UP   &kp LC(TAB)
-				&kp C_VOL_DN   &kp LC(LS(TAB))
+				&msc SCRL_UP   &kp LC(TAB)
+				&msc SCRL_DOWN   &kp LC(LS(TAB))
 			>;
 		};
 
