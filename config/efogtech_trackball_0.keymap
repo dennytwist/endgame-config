@@ -29,7 +29,7 @@
 
         default_layer {
             display-name = "Default";
-            sensor-bindings = <&enc_scroll_vert &enc_scroll_horiz>;
+            sensor-bindings = <&enc_msc MOVE_UP MOVE_DOWN &enc_msc MOVE_RIGHT MOVE_LEFT>;
             bindings = <
                 // buttons
                 &ltmkp LAYER_SNIPE ENTER  &ltmkp LAYER_SCROLL ESC
@@ -115,16 +115,10 @@
     };
 
     behaviors {
-        enc_scroll_vert: enc_scroll_vert {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
-        };
-
-        enc_scroll_horiz: enc_scroll_horiz {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_RIGHT>, <&msc SCRL_LEFT>;
+        enc_msc: enc_msc {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&msc>, <&msc>;
         };
 
         cdch: click-double-click-hold {
