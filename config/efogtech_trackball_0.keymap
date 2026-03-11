@@ -38,8 +38,8 @@
                 &ltm LAYER_EXTRAS MB4     &ltm LAYER_DEVICE MB5
 
                 // rotary encoders
-                &msc SCRL_UP              &msc SCRL_RIGHT
-                &msc SCRL_DOWN              &msc SCRL_LEFT
+                &msc MOVE_UP              &msc MOVE_RIGHT
+                &msc MOVE_DOWN              &msc MOVE_LEFT
             >;
         };
 
