@@ -118,13 +118,13 @@
         enc_scroll_vert: enc_scroll_vert {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&msc MOVE_UP>, <&msc MOVE_DOWN>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
         };
 
         enc_scroll_horiz: enc_scroll_horiz {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&msc MOVE_RIGHT>, <&msc MOVE_LEFT>;
+            bindings = <&msc SCRL_RIGHT>, <&msc SCRL_LEFT>;
         };
 
         cdch: click-double-click-hold {
