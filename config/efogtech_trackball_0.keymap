@@ -39,7 +39,7 @@
 
                 // rotary encoders
                 &msc SCRL_UP              &msc SCRL_RIGHT
-                &msc SCRL_DN              &msc SCRL_LEFT
+                &msc SCRL_DOWN              &msc SCRL_LEFT
             >;
         };
 
