@@ -29,7 +29,7 @@
 
         default_layer {
             display-name = "Default";
-            DECLARE_ENCODERS;
+            sensor-bindings = <&enc_scroll_vert &enc_scroll_horiz>;
             bindings = <
                 // buttons
                 &ltmkp LAYER_SNIPE ENTER  &ltmkp LAYER_SCROLL ESC
@@ -37,9 +37,9 @@
                 &mkp LCLK                 &mkp RCLK
                 &ltm LAYER_EXTRAS MB4     &ltm LAYER_DEVICE MB5
 
-                // rotary encoders
-                &msc MOVE_UP              &msc MOVE_RIGHT
-                &msc MOVE_DOWN              &msc MOVE_LEFT
+                // rotary encoders (handled by sensor-bindings above)
+                &trans                    &trans
+                &trans                    &trans
             >;
         };
 
@@ -115,6 +115,18 @@
     };
 
     behaviors {
+        enc_scroll_vert: enc_scroll_vert {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc MOVE_UP>, <&msc MOVE_DOWN>;
+        };
+
+        enc_scroll_horiz: enc_scroll_horiz {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc MOVE_RIGHT>, <&msc MOVE_LEFT>;
+        };
+
         cdch: click-double-click-hold {
             compatible = "zmk,behavior-hold-tap";
             display-name = "Copy/paste/layer (click/double-click/hold)";
