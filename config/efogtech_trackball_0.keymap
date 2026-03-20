@@ -18,7 +18,7 @@
 #define TWIST_DIVISOR      15
 
 #define SCROLL_MULTIPLIER  1
-#define SCROLL_DIVISOR     1
+#define SCROLL_DIVISOR     10
 
 #define SNIPE_MULTIPLIER   1
 #define SNIPE_DIVISOR      6
@@ -147,7 +147,7 @@
 
         scroll {
             layers = <LAYER_SCROLL>;
-            input-processors = <&zip_xy_scaler SCROLL_MULTIPLIER SCROLL_DIVISOR>, <&zip_axis_clamper>,
+            input-processors = <&zip_xy_scaler SCROLL_MULTIPLIER SCROLL_DIVISOR>,
                                <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,
                                <&zip_rotate_scroll>, <&zip_ble_report_rate_limit>;
         };
