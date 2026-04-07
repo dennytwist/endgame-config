@@ -29,7 +29,7 @@
 
         default_layer {
             display-name = "Default";
-            sensor-bindings = <&enc_msc MOVE_UP MOVE_DOWN &enc_msc MOVE_RIGHT MOVE_LEFT>;
+            DECLARE_ENCODERS;
             bindings = <
                 // buttons
                 &ltmkp LAYER_SNIPE ENTER  &ltmkp LAYER_SCROLL ESC
@@ -37,9 +37,9 @@
                 &mkp LCLK                 &mkp RCLK
                 &ltm LAYER_EXTRAS MB4     &ltm LAYER_DEVICE MB5
 
-                // rotary encoders (handled by sensor-bindings above)
-                &trans                    &trans
-                &trans                    &trans
+                // rotary encoders
+                &kp C_VOL_UP              &kp LC(TAB)
+                &kp C_VOL_DN              &kp LC(LS(TAB))
             >;
         };
 
@@ -115,12 +115,6 @@
     };
 
     behaviors {
-        enc_msc: enc_msc {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&msc>, <&msc>;
-        };
-
         cdch: click-double-click-hold {
             compatible = "zmk,behavior-hold-tap";
             display-name = "Copy/paste/layer (click/double-click/hold)";
@@ -150,7 +144,7 @@
             input-processors = <&zip_xy_scaler SCROLL_MULTIPLIER SCROLL_DIVISOR>,
                                <&zip_axis_clamper>,
                                <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,
-                               <&zip_rotate_scroll>, <&zip_ble_report_rate_limit>;
+                               <&zip_dragscroll_accel>, <&zip_rotate_scroll>, <&zip_ble_report_rate_limit>;
         };
 
         snipe {
