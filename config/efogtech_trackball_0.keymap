@@ -17,6 +17,9 @@
 #define TWIST_MULTIPLIER   1
 #define TWIST_DIVISOR      15
 
+#define POINTER_MULTIPLIER 3
+#define POINTER_DIVISOR    5
+
 #define SCROLL_MULTIPLIER  1
 #define SCROLL_DIVISOR     60
 
@@ -135,7 +138,7 @@
 
     trackball {
         input-processors = <&zip_scroll_scaler TWIST_MULTIPLIER TWIST_DIVISOR>,
-                           <&zip_pointer_accel>,
+                           <&zip_xy_scaler POINTER_MULTIPLIER POINTER_DIVISOR>,
                            <&zip_rotate_pointer>, <&zip_rotate_scroll>,
                            <&zip_ble_report_rate_limit>;
 
