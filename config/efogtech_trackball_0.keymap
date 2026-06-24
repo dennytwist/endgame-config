@@ -21,7 +21,7 @@
 #define POINTER_DIVISOR    5
 
 #define SCROLL_MULTIPLIER  1
-#define SCROLL_DIVISOR     30
+#define SCROLL_DIVISOR     40
 
 #define SNIPE_MULTIPLIER   1
 #define SNIPE_DIVISOR      6
@@ -159,7 +159,7 @@
 
     behaviors {
         rrl {
-            values-ms = <0 1 2 4 6 8>;
+            values-ms = <5 8 12 16 20 24>;
         };
     };
 
