@@ -21,7 +21,7 @@
 #define POINTER_DIVISOR    5
 
 #define SCROLL_MULTIPLIER  1
-#define SCROLL_DIVISOR     40
+#define SCROLL_DIVISOR     35
 
 #define SNIPE_MULTIPLIER   1
 #define SNIPE_DIVISOR      6
